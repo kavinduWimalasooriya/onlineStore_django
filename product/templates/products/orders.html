@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block titlecontent %}
+    Order Placed
+{% endblock titlecontent %}
+ {% block css_content %}{% endblock css_content %}
+{% block content %}
+   <table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">ProductId</th>
+            <th scope="col">Name</th>
+            <th scope="col">Order Date</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+    {% for order  in allorders %}
+        
+        <tr>
+                <th scope="row">{{order.pk}}</th>
+                <td>{{order.product.pk}}</td>
+             
+                <td> {{order.product.name}} </td>
+                <td>{{order.date}}</td>
+               
+        </tr>
+    {% endfor %}    
+    </tbody>
+</table>
+{% endblock content %}

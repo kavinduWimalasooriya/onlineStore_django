@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block titlecontent %}
+    Products
+{% endblock titlecontent %}
+{% block css_content %}
+  <style type="text/css">
+    h2{
+      text-align : center;
+    }
+    .grid-container {
+        
+        display: grid;
+        grid-gap: 50px 100px;
+        grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+        
+      }
+      .grid-item {
+        
+        margin:20px;
+        padding:10px;
+        
+        
+      }
+  </style>
+{% endblock css_content %}
+{% block content %}
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+      <h1 class="display-4">Make your dreams true </h1>
+      <p class="lead">The popular product categories on Ubuy include electronics, 
+      cell phones and accessories, kitchen and dining, books and office products. 
+      We offer a wide range of popular product categories to suit your specific 
+      needs and desires. Now you can search the list of products in the popular 
+      category and do your online shopping in a more quick and efficient way to 
+      save your precious time. DIGICO  is one of the best online shopping sites in the market.
+
+</p>
+    </div>
+    <section id='all-products'>
+      <h2>Our Products</h2> 
+      <div>
+        <div class="grid-container">
+            {% for pro in all_products %}
+               <div class="grid-item">{% include 'products/includes/product.html' %}</div>
+            {% endfor %}
+          
+           
+        </div>
+      </div>
+      
+    </section>
+
+{% endblock content %}

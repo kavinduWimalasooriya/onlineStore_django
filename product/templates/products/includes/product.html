@@ -1,0 +1,19 @@
+<form  method='POST'>
+{% csrf_token %}
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="{{pro.image.url}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{pro.name}}</h5>
+
+      <p class="card-text">{{pro.categoty}}</p>
+      {% comment %} <p class="card-text">{{pro.description}}</p> {% endcomment %}
+      <p class="card-text">{{pro.available_items}} items available</p>
+
+      <h5 >$ {{pro.price}} </h5>
+      <input type ='hidden' name = "product_id" value ="{{pro.pk}}">
+      <button class="btn btn-primary" type="submit"  >Buy</button>
+      {% comment %} <a class="btn btn-primary" href = "{% url 'all_placed_orders' %}">Bye</a> {% endcomment %}
+      
+    </div>
+  </div>
+</form>
